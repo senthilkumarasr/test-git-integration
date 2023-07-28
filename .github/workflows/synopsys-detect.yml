@@ -21,6 +21,9 @@ jobs:
         env:
           DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
           BLACKDUCK_TRUST_CERT: true
+          DETECT_POLICY_CHECK_FAIL_ON_SEVERITIES: ALL
+          DETECT_WAIT_FOR_RESULTS: TRUE
+          DETECT_RISK_REPORT_PDF: TRUE
         with:
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
@@ -28,7 +31,7 @@ jobs:
           ### Accepts Multiple Values
           blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
           ### Uncomment below configuration to enable automatic fix pull request creation if vulnerabilities are reported
-          # blackduck_automation_fixpr: true 
+          blackduck_automation_fixpr: true
           # github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_fixpr is set to 'true'
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           # include_diagnostics: true  
