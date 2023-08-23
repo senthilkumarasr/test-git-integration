@@ -51,3 +51,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_prcomment is set to 'true'
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           # include_diagnostics: true
+      - name: Create Black Duck Policy
+        env:
+          NODE_EXTRA_CA_CERTS: ${{ secrets.LOCAL_CA_CERT_PATH }}
+        uses: blackducksoftware/create-policy-action@v0.0.1
+        with:
+          blackduck-url: ${{ secrets.BLACKDUCK_URL }}
+          blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+          policy-name: 'git-int-check'
+          no-fail-if-policy-exists: true
