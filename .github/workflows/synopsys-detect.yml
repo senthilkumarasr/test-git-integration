@@ -37,17 +37,15 @@ jobs:
         uses: synopsys-sig/synopsys-action@v1.2.0
         ### Use below configuration to set specific detect environment variables
         env:
-          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+          DETECT_EXCLUDED_DETECTOR_TYPES: GIT
         with:
+          include_diagnostics: true
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
-          blackduck_scan_full: false
+          blackduck_scan_full: true
           ### Below configuration is used to enable automatic pull request comment based on Black Duck scan result
           blackduck_automation_prcomment: true
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_prcomment is set to 'true'
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
-          include_diagnostics: true
-          #continue-on-error: blackduck_automation_prcomment
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Create Black Duck Policy
         env:
