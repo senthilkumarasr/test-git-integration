@@ -35,6 +35,7 @@ jobs:
           # github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_fixpr is set to 'true'
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           # include_diagnostics: true
+          blackduck_automation_prcomment: true
           continue-on-error: blackduck_automation_prcomment
 
       - name: Black Duck PR Scan
@@ -52,7 +53,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_prcomment is set to 'true'
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           # include_diagnostics: true
-          continue-on-error: true
+          continue-on-error: blackduck_automation_prcomment
           
       - name: Create Black Duck Policy
         env:
