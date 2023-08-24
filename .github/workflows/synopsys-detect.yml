@@ -22,22 +22,15 @@ jobs:
       - name: Black Duck Full Scan
         if: ${{ github.event_name != 'pull_request' }}
         uses: synopsys-sig/synopsys-action@v1.2.0
-        ### Use below configuration to set specific detect environment variables
         env:
-          BLACKDUCK_TRUST_CERT: true
+          DETECT_EXCLUDED_DETECTOR_TYPES: GIT
         with:
+          include_diagnostics: true
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_scan_full: false
-          ### Accepts Multiple Values
-          blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
-          ### Uncomment below configuration to enable automatic fix pull request creation if vulnerabilities are reported
-          blackduck_automation_fixpr: false
           blackduck_automation_prcomment: true
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_fixpr is set to 'true'
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
-          include_diagnostics: true
-          #continue-on-error: blackduck_automation_prcomment
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Black Duck PR Scan
         if: ${{ github.event_name == 'pull_request' }}
