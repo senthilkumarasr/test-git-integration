@@ -6,7 +6,12 @@ on:
     branches: [ main, master, develop, stage, release ]
   pull_request:
     branches: [ main, master, develop, stage, release ]
-  workflow_dispatch:  
+  workflow_dispatch:
+env:
+  DETECT_PROJECT_NAME: test-git-int-ramal
+  DETECT_PROJECT_VERSION_NAME: main
+  DETECT_TOOLS: DETECTOR
+  DETECT_TIMEOUT: 3000
 jobs:
   build:
     runs-on: self-hosted
@@ -19,11 +24,7 @@ jobs:
         uses: synopsys-sig/synopsys-action@v1.2.0
         ### Use below configuration to set specific detect environment variables
         env:
-          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
           BLACKDUCK_TRUST_CERT: true
-          DETECT_POLICY_CHECK_FAIL_ON_SEVERITIES: ALL
-          DETECT_WAIT_FOR_RESULTS: TRUE
-          DETECT_RISK_REPORT_PDF: TRUE
         with:
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
@@ -32,7 +33,7 @@ jobs:
           blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
           ### Uncomment below configuration to enable automatic fix pull request creation if vulnerabilities are reported
           blackduck_automation_fixpr: false
-          #blackduck_automation_prcomment: true
+          blackduck_automation_prcomment: true
           github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_automation_fixpr is set to 'true'
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           include_diagnostics: true
