@@ -21,7 +21,7 @@ jobs:
 
       - name: Black Duck PR Scan
         if: ${{ github.event_name == 'pull_request' }}
-        uses: synopsys-sig/synopsys-action@v1.4.1
+        uses: synopsys-sig/synopsys-action@v1.6.0
         ### Use below configuration to set specific detect environment variables
         env:
           DETECT_EXCLUDED_DETECTOR_TYPES: GIT
