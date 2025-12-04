@@ -6,7 +6,7 @@ on:
     branches: [ main]
 
 env:
-  DETECT_PROJECT_NAME: test-git-int-ramal
+  DETECT_PROJECT_NAME: rajesh-action-test
   DETECT_PROJECT_VERSION_NAME: main
   DETECT_POLICY_CHECK_FAIL_ON_SEVERITIES: ALL
   LOGGING_LEVEL_COM_SYNOPSYS_INTEGRATION: DEBUG
@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: Checkout Sources
+      - name: Checkout Source
         uses: actions/checkout@v3
 
       - name: Black Duck PR Scan
@@ -28,7 +28,7 @@ jobs:
         with:
           include_diagnostics: true
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
-          blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
+          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
           blackduck_scan_full: false
-          blackduck_automation_prcomment: true
+          blackduck_prComment_enabled: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
