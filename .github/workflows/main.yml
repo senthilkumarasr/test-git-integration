@@ -23,7 +23,7 @@ jobs:
 
       with:
         ### SCANNING: Required fields
-        blackducksca_url: "https://10.230.193.3"
+        blackducksca_url: ${{ vars.BLACKDUCK_URL }}
         blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
         
         ### SCANNING: Optional fields
