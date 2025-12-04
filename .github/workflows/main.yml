@@ -1,4 +1,4 @@
-name: CI-BlackDuck-SCA-Basic
+rname: CI-BlackDuck-SCA-Basic
 on:
   push:
     branches: [main, master, develop, stage, release]
@@ -23,7 +23,7 @@ jobs:
 
       with:
         ### SCANNING: Required fields
-        blackducksca_url: ${{ vars.sca.BLACKDUCK_URL }}
+        blackducksca_url: ${{ secrets.BLACKDUCK_URL }}
         blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
         
         ### SCANNING: Optional fields
