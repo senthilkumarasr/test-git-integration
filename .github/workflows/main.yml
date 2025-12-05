@@ -23,8 +23,8 @@ jobs:
 
       with:
         ### SCANNING: Required fields
-        blackducksca_url: "https://10.230.193.3"
-        blackducksca_token: "YTA4ZGMyZmYtOWViYS00MzFhLWE4YzctN2Q2MGUzNjhlYzIxOjg0YzQ1NDY0LWZhMmEtNDViZi05ZTRhLTQxZDQxZTU0YmYzNA=="
+        blackducksca_url: ${{ secrets.BLACKDUCK_URL }}
+        blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
         
         ### SCANNING: Optional fields
         # blackducksca_scan_failure_severities: 'BLOCKER,CRITICAL'
