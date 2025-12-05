@@ -23,7 +23,7 @@ jobs:
 
       with:
         ### SCANNING: Required fields
-        blackducksca_url: ${{ secrets.BLACKDUCK_URL }}
+        blackducksca_url: "https://aws-eng-ramal01.eng.aws.internal"
         blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
         
         ### SCANNING: Optional fields
