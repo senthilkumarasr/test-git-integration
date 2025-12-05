@@ -24,7 +24,7 @@ jobs:
       with:
         ### SCANNING: Required fields
         blackducksca_url: "https://aws-eng-ramal01.eng.aws.internal"
-        blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
+        blackducksca_token: "YTA4ZGMyZmYtOWViYS00MzFhLWE4YzctN2Q2MGUzNjhlYzIxOjg0YzQ1NDY0LWZhMmEtNDViZi05ZTRhLTQxZDQxZTU0YmYzNA=="
         
         ### SCANNING: Optional fields
         # blackducksca_scan_failure_severities: 'BLOCKER,CRITICAL'
