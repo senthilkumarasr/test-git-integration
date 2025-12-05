@@ -23,7 +23,7 @@ jobs:
 
       with:
         ### SCANNING: Required fields
-        blackducksca_url: "https://aws-eng-ramal01.eng.aws.internal"
+        blackducksca_url: "https://10.230.193.3"
         blackducksca_token: "YTA4ZGMyZmYtOWViYS00MzFhLWE4YzctN2Q2MGUzNjhlYzIxOjg0YzQ1NDY0LWZhMmEtNDViZi05ZTRhLTQxZDQxZTU0YmYzNA=="
         
         ### SCANNING: Optional fields
@@ -45,4 +45,4 @@ jobs:
         ## OPTIONAL DIAGNOSTICS: Upload logs as build artifact if true
         include_diagnostics: true
         network_ssl_trustAll: false
-        detect_args: "--detect.test.connection=true"
+        detect_args: "--detect.test.connection=true --logging.level.detect=TRACE"
