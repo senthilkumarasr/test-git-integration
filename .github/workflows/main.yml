@@ -44,4 +44,5 @@ jobs:
 
         ## OPTIONAL DIAGNOSTICS: Upload logs as build artifact if true
         include_diagnostics: true
-        network_ssl_trustAll: true
+        network_ssl_trustAll: false
+        detect_args: "--detect.test.connection=true"
