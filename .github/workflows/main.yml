@@ -22,8 +22,8 @@ jobs:
         DETECT_PROJECT_VERSION_NAME: ${{ github.event_name != 'pull_request' && github.ref_name || github.event.pull_request.base.ref }}
 
       with:
-        ### SCANNING: Required fields
-        blackducksca_url: ${{ secrets.BLACKDUCK_URL }}
+        ### SCANNING: Required fields ${{ secrets.BLACKDUCK_URL }} 
+        blackducksca_url: "https://10.230.193.3"
         blackducksca_token: ${{ secrets.BLACKDUCK_TOKEN }}
         
         ### SCANNING: Optional fields
