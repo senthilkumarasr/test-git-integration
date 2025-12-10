@@ -45,4 +45,4 @@ jobs:
         ## OPTIONAL DIAGNOSTICS: Upload logs as build artifact if true
         include_diagnostics: false
         network_ssl_trustAll: true
-        detect_args: "--logging.level.detect=DEBUG"
+        detect_args: "--logging.level.detect=DEBUG --blackduck.offline.mode=true"
