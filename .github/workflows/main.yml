@@ -43,6 +43,6 @@ jobs:
         blackducksca_upload_sarif_report: false
 
         ## OPTIONAL DIAGNOSTICS: Upload logs as build artifact if true
-        include_diagnostics: true
-        network_ssl_trustAll: false
-        detect_args: "--detect.test.connection=true --logging.level.detect=TRACE"
+        include_diagnostics: false
+        network_ssl_trustAll: true
+        detect_args: "--detect.test.connection=true --logging.level.detect=DEBUG"
